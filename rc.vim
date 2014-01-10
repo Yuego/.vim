@@ -117,7 +117,8 @@
 
     " Localization
     set langmenu=none            " Always use english menu
-    set keymap=russian-jcukenwin " Alternative keymap
+    "set keymap=russian-jcukenwin " Alternative keymap
+    set keymap=russian-dvorak
     set iminsert=0               " English by default
     set imsearch=-1              " Search keymap from insert mode
     set spelllang=en,ru          " Languages
@@ -145,9 +146,10 @@
     set wildignore+=*.orig                           " Merge resolution files
 
     set numberwidth=1              " Keep line numbers small if it's shown
-
-    set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
-
+    " QWERTY
+    ""set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ.;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
+    " DWORAK
+    set langmap=ёйцукенгшщзхъфывапролджэячсмитьбю.ЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`'\\,.pyfgcrl/=aoeuidhtns-\\;qjkxbmwvz~\\"<>PYFGCRL?+AOEUIDHTNS_:QJKXBMWV
     " Undo
     if has('persistent_undo')
         set undofile            " enable persistent undo
@@ -673,7 +675,7 @@ command! -bang WQ wq<bang>
         
         let g:vimwiki_folding = 1
         let g:vimwiki_fold_lists = 1
-        let g:vimwiki_list = [{"path" : "~/Dropbox/wiki"}, {"path" : "~/Dropbox/wiki/english"}]
+        let g:vimwiki_list = [{"path" : "~/Data/Dropbox/Private/Wiki"}, {"path" : "~/Data/Dropbox/Privawe/Wiki/english"}]
 
         nmap <Leader>wv <Plug>VimwikiIndex
 
