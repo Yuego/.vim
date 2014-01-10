@@ -197,6 +197,9 @@
         set guifont=Monaco\ 12
     endif
 
+    " Another settings
+    set updatetime=750
+
 " }}}
 
 
@@ -578,6 +581,14 @@ command! -bang WQ wq<bang>
       let g:Gitv_WipeAllOnClose = 1
       let g:Gitv_DoNotMapCtrlKey = 1
     
+    " }}}
+    
+    " GitGutter {{{
+        NeoBundle 'airblade/vim-gitgutter'
+
+        let g:gitgutter_sign_removed = '-'
+        let g:gitgutter_highlight_lines = 0
+
     " }}}
 
     " Airline {{{
