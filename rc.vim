@@ -149,7 +149,7 @@
     " QWERTY
     ""set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ.;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
     " DWORAK
-    set langmap=ёйцукенгшщзхъфывапролджэячсмитьбю.ЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`'\\,.pyfgcrl/=aoeuidhtns-\\;qjkxbmwvz~\\"<>PYFGCRL?+AOEUIDHTNS_:QJKXBMWV
+    set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`'\\,.pyfgcrl/=aoeuidhtns-\\;qjkxbmwv~\\"<>PYFGCRL?+AOEUIDHTNS_:QJKXBMWV
     " Undo
     if has('persistent_undo')
         set undofile            " enable persistent undo
@@ -591,6 +591,13 @@ command! -bang WQ wq<bang>
 
     " }}}
 
+    " IndentLine {{{
+        NeoBundle 'Yggdroot/indentLine'
+
+        let g:indentLine_color_term = 236
+        let g:indentLine_char = '┆'
+    " }}}
+
     " Airline {{{
     " =======
 
@@ -676,6 +683,9 @@ command! -bang WQ wq<bang>
         let g:pymode_lint_checkers = ['pylint', 'pep8', 'pep257', 'pyflakes', 'mccabe']
         let g:pymode_lint_ignore = 'C0111'
         let g:pymode_lint_unmodified = 1
+
+        let g:pymode_folding = 0
+
     
     " }}}
 
