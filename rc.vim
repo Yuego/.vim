@@ -77,7 +77,7 @@
     set sidescrolloff=10
     set showcmd                 " Show commands
     set whichwrap=b,s,<,>,[,],l,h
-    set completeopt=menu,preview
+    set completeopt=menu,longest
     set infercase
     set nojoinspaces
     set laststatus=2            " Always show a statusline
@@ -688,17 +688,39 @@ command! -bang WQ wq<bang>
 
         let g:pymode_folding = 0
 
-        let g:pymode_rope = 0
+        "let g:pymode_rope_completion = 0
+        let g:pymode_debug = 1
 
     
     " }}}
+    
     " JediVim {{{
-        NeoBundle 'davidhalter/jedi-vim.git'
+        "NeoBundle 'davidhalter/jedi-vim'
 
         let g:jedi#auto_vim_configuration = 0
         let g:jedi#popup_select_first = 0
+        let g:jedi#completions_enabled = 0
     " }}
+    " VimIpython {{{
+        "NeoBundle 'ivanov/vim-ipython'
+    " }}
+     " NeoComplete {{{
+        "NeoBundle 'Shougo/neocomplete.vim'
 
+        let g:neocomplete#enable_at_startup = 1
+        let g:neocomplete#enable_auto_select = 0
+        let g:neocomplete#enable_ignore_case = 1
+        let g:neocomplete#enable_smart_case = 1 
+        let g:neocomplete#enable_fuzzy_completion = 1
+        if !exists('g:neocomplete#sources#omni#functions')
+            let g:neocomplete#sources#omni#functions = {}
+        endif
+        let g:neocomplete#sources#omni#functions.python = 'pymode#rope#completions' 
+        "autocmd FileType python setlocal omnifunc=pymode#rope#completions
+
+        " <TAB>: completion.
+        "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    " }}} 
     " WIKI {{{
     " ====
 
