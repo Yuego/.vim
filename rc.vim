@@ -566,7 +566,7 @@ command! -bang WQ wq<bang>
           \ 'autoload':{'commands':'Gitv'}}
 
       nnoremap <leader>gL :Gitv --all<CR>
-      nnoremap <leader>ga :Gadd<CR>
+      "nnoremap <leader>ga :Gadd<CR>
       nnoremap <leader>gb :Gblame<CR>
       nnoremap <leader>gc :Gcommit %<CR>
       nnoremap <leader>gd :Gdiff<CR>
@@ -686,8 +686,16 @@ command! -bang WQ wq<bang>
 
         let g:pymode_folding = 0
 
+        let g:pymode_rope = 0
+
     
     " }}}
+    " JediVim {{{
+        NeoBundle 'davidhalter/jedi-vim.git'
+
+        let g:jedi#auto_vim_configuration = 0
+        let g:jedi#popup_select_first = 0
+    " }}
 
     " WIKI {{{
     " ====
