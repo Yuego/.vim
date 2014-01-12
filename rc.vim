@@ -592,10 +592,12 @@ command! -bang WQ wq<bang>
     " }}}
 
     " IndentLine {{{
+    " =======
         NeoBundle 'Yggdroot/indentLine'
 
         let g:indentLine_color_term = 236
         let g:indentLine_char = '┆'
+        let g:indentLine_faster = 1
     " }}}
 
     " Airline {{{
