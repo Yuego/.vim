@@ -83,6 +83,8 @@
     set laststatus=2            " Always show a statusline
     " Don't try to highlight lines longer than 800 characters.
     set synmaxcol=800
+    set number
+    set norelativenumber
 
     " Tab options
     set autoindent              " copy indent from previous line
@@ -317,6 +319,14 @@
             autocmd CursorMovedI * if pumvisible() == 0|pclose|endif 
             autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+            " Standard completions
+            autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+            autocmd FileType html,markdown,ctp set omnifunc=htmlcomplete#CompleteTags
+            autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+            " autocmd FileType python set omnifunc=pythoncomplete#Complete
+            autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+            autocmd FileType php,ctp set omnifunc=phpcomplete#CompletePHP
+            autocmd FileType vim set omnifunc=syntaxcomplete#Complete
 
         augroup END
 
@@ -406,6 +416,14 @@
         nnoremap <silent> <leader>l :wincmd l<CR>
         nnoremap <silent> <leader>+ :wincmd +<CR>
         nnoremap <silent> <leader>- :wincmd -<CR>
+
+        nnoremap <silent> <localleader>h :wincmd h<CR>
+        nnoremap <silent> <localleader>j :wincmd j<CR>
+        nnoremap <silent> <localleader>k :wincmd k<CR>
+        nnoremap <silent> <localleader>l :wincmd l<CR>
+        nnoremap <silent> <localleader>+ :wincmd +<CR>
+        nnoremap <silent> <localleader>- :wincmd -<CR>
+ 
         nnoremap <silent> <leader>cj :wincmd j<CR>:close<CR>
         nnoremap <silent> <leader>ck :wincmd k<CR>:close<CR>
         nnoremap <silent> <leader>ch :wincmd h<CR>:close<CR>
@@ -687,8 +705,10 @@ command! -bang WQ wq<bang>
         let g:pymode_lint_unmodified = 1
 
         let g:pymode_folding = 0
+        let g:pymode_lint_on_fly = 1
 
         "let g:pymode_rope_completion = 0
+        let g:pymode_rope_complete_on_dot = 1
         let g:pymode_debug = 1
 
     
@@ -719,7 +739,7 @@ command! -bang WQ wq<bang>
         "autocmd FileType python setlocal omnifunc=pymode#rope#completions
 
         " <TAB>: completion.
-        "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+        inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
     " }}} 
     " WIKI {{{
     " ====
